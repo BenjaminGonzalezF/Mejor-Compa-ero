@@ -1,43 +1,43 @@
 import mongoose from "mongoose";
 var Usuario = new mongoose.Schema(
     {
-        Nombre: {
+        nombre: {
             type: String,
             required: true,
         },
-        Apellido: {
+        apellido: {
             type: String,
             required: true,
         },
-        Correo: {
+        correo: {
             type: String,
             required: true,
         },
-        Clave: {
+        clave: {
+            type: Number,
+            required: true,
+        },
+        tipo: {
             type: String,
             required: true,
         },
-        Tipo: {
+        voto: {
             type: String,
             required: true,
         },
-        Voto: {
+        conteoVotos: {
             type: String,
             required: true,
         },
-        ConteoVotos: {
+        votoPorM: {
             type: String,
             required: true,
         },
-        VotoPorM: {
+        votoPorF: {
             type: String,
             required: true,
         },
-        VotoPorF: {
-            type: String,
-            required: true,
-        },
-        Invitado: {
+        invitado: {
             type: String,
             required: true,
         },
