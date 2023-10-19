@@ -4,6 +4,7 @@ const Login = () => {
   const [correo, setCorreo] = useState('');
   const [clave, setClave] = useState('');
   const [error, setError] = useState(''); // Estado para el mensaje de error
+  const navigate = useNavigate(); 
 
 
   const handleCorreoChange = (event) => {
@@ -37,6 +38,10 @@ const Login = () => {
     }
   };
 
+  const irAPestañaInicial = () => {
+    navigate('/pestañaInicial');
+  };
+
   const handleLogin = () => {
     navigate('/inicio');
   };
@@ -64,7 +69,7 @@ const Login = () => {
           <div className="flex justify-end my-4">
           <button className="mt-3 text-lg font-semibold
             bg-gray-800 w-full text-white rounded-lg
-            px-6 py-3 block shadow-xl hover:text-white hover:bg-black" type="submit">
+            px-6 py-3 block shadow-xl hover:text-white hover:bg-black" onClick={irAPestañaInicial}>
             Iniciar Sesión
           </button>
           </div>
