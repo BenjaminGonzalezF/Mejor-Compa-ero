@@ -18,23 +18,23 @@ var Usuario = new mongoose.Schema(
             required: true,
         },
         tipo: {
-            type: String,
+            type: Number,
             required: true,
         },
         voto: {
-            type: String,
+            type: Number,
             required: true,
         },
         conteoVotos: {
-            type: String,
+            type: Number,
             required: true,
         },
         votoPorM: {
-            type: String,
+            type: Number,
             required: true,
         },
         votoPorF: {
-            type: String,
+            type: Number,
             required: true,
         },
         invitado: {

@@ -43,8 +43,12 @@ async function  buscarUsuario(nuevoUsuario) {
       const usuarioEncontrado = await usuario.findOne({ correo: correo, clave: clave });
 
       if (usuarioEncontrado) {
-        console.log('Usuario encontrado:', usuarioEncontrado);
-        return true;
+        if(usuarioEncontrado.voto == 0){
+            console.log('Usuario encontrado:', usuarioEncontrado);
+            return true;
+            }
+        console.log('Usuario ya voto:', usuarioEncontrado);
+        return false
       } else {
         console.log('No se encontró ningún usuario con ese nombre y contraseña');
         return false;
@@ -54,7 +58,5 @@ async function  buscarUsuario(nuevoUsuario) {
       return false;
     }
 }  
-
-
 
 export { guardarUsuario, mostrarUsuarios, verificarCorreo, buscarUsuario}; 
