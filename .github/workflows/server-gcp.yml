@@ -1,12 +1,12 @@
-name: Build and Push Node Image to Google Cloud Platform
+name: Build and Deploy Node Image to Google Cloud Run
 
 on:
   push:
     branches: [Deploy-Server]
 
 jobs:
-  build-push-gcr:
-    name: Build and Push to GCP
+  build-deploy-gcr:
+    name: Build and Deploy to GCP
     runs-on: ubuntu-latest
 
     env:
@@ -38,18 +38,19 @@ jobs:
 
       - name: Push Docker Image to Container Registry (GCR)
         env:
-          GIT_TAG: v.1.0.0
+          GIT_TAG: v1.0.0
         run: |-
           docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:latest
           docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:$GIT_TAG
           docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:latest
           docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:$GIT_TAG
-          
-      - name: Create Cloud Run Service
+
+      - name: Deploy to Cloud Run
         run: |
           gcloud run deploy $IMAGE_NAME \
             --image gcr.io/$PROJECT_ID/$IMAGE_NAME:latest \
             --platform managed \
             --region us-central1 \
             --memory 128Mi \
-            --cpu 1
+            --cpu 1 \
+            --allow-unauthenticated
