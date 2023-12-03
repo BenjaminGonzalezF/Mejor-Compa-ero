@@ -1,4 +1,4 @@
-name: Build and Deploy Node Image to Google Cloud Run
+name: Build, Push and Deploy Node Image to Google Cloud Platform
 
 on:
   push:
