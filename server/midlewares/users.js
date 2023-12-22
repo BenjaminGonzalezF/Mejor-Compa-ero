@@ -47,14 +47,15 @@ export async function registrarUsuario(req, res) {
 }
     export async function obtenerUsuarios(req, res) {
         const result = await mostrarUsuarios();
-        if(result){
-            res.status(200).json({
-                result
-            })
+        if (result) {
+            return res.status(200).json({
+                message: "Soy un usuario de prueba"
+            });
+        } else {
+            return res.status(417).json({
+                message: "Error al solicitar los datos"
+            });
         }
-        return res.status(417).json({
-            massage: "Error al soliciatar los datos"
-        });
     }
 
 

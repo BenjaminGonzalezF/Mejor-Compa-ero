@@ -7,7 +7,7 @@ config({ path: './.env' });
 
 
 const app = express()
-const PORT = process.env.PORT || 7777
+const PORT = process.env.PORT 
 
 
 app.use(cors())
